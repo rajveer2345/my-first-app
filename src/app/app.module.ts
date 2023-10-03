@@ -7,14 +7,18 @@ import { BlogComponent } from './blog/blog.component';
 
 
 
+import { EditformComponent } from './editform/editform.component';
+import { UserformComponent } from './userform/userform.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    BlogComponent
-],
+    BlogComponent,
+ EditformComponent,
+    UserformComponent
+  ],
   imports: [
     BrowserModule
   ],
