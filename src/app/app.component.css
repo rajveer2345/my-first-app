@@ -1,18 +1,18 @@
-<<<<<<< HEAD
-h1{
-    color:blueviolet;
-} 
-=======
-.headings{
+h1 {
+    color: blueviolet;
+}
+
+.headings {
     font-family: sans-serif;
     font-size: 1.75rem;
     font-weight: 400;
 }
-.form-control{
+
+.form-control {
     border-radius: 30px;
 }
-.btn-primary{
+
+.btn-primary {
     height: 50%;
     width: 15%;
 }
->>>>>>> dbb4541e11fa06387ff9581a704f6028d0d17892

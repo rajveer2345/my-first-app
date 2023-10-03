@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BlogComponent } from './blog/blog.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -20,7 +21,11 @@ import { UserformComponent } from './userform/userform.component';
     UserformComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+      {path: 'blog', component: BlogComponent},
+      {path: 'userform', component: UserformComponent},
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
