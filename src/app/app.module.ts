@@ -25,6 +25,7 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot([
+      {path: '', redirectTo: '/home', pathMatch: 'full'},
       {path: 'dashboard', component: DashboardComponent,
       children: [
         {
@@ -40,7 +41,6 @@ import { HomeComponent } from './home/home.component';
       {path: 'login', component: LoginComponent},
       {path: 'home', component: HomeComponent},
 
-      {path: '', redirectTo: '/home', pathMatch: 'full'},
     ]),
   ],
   providers: [],
