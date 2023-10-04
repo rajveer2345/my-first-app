@@ -13,6 +13,8 @@
   .text{
     font-size: 1.8rem;
     font-weight: bold;
+   
+   
   }
   .gaping{
     gap: 30px;
@@ -30,7 +32,7 @@
     gap: 30px;
   }
  .border1{
-    border: 1px solid white;
+  
     border-radius: 12px;
     height: 300px;
     width:250px;
@@ -40,7 +42,7 @@
 }
 
 .border2{
-    border: 1px solid white;
+   
     border-radius: 12px;
     height: 300px;
     width:250px;
@@ -49,7 +51,7 @@
     background-position: center;
 }
 .border3{
-    border: 1px solid white;
+   
     border-radius: 12px;
     height: 300px;
     width:250px;
@@ -59,7 +61,7 @@
 }
 
 .border4{
-    border: 1px solid white;
+  
     border-radius: 12px;
     height: 300px;
     width:250px;
@@ -70,3 +72,5 @@
 .alink{
     text-decoration: none;
 }
+
+
