@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { EditformComponent } from './editform/editform.component';
 import { UserformComponent } from './userform/userform.component';
 import { HomeComponent } from './home/home.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeComponent } from './home/home.component';
     BlogComponent,
     EditformComponent,
     UserformComponent,
-    HomeComponent
+    HomeComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { HomeComponent } from './home/home.component';
       ]},
       {path: 'login', component: LoginComponent},
       {path: 'home', component: HomeComponent},
+      {path: 'signup', component: SignupComponent},
 
     ]),
   ],
