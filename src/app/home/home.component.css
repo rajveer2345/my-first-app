@@ -33,6 +33,7 @@
 
 .outer-border {
     gap: 30px;
+    margin-top: 10%;
 }
 
 .border1 {
@@ -73,4 +74,10 @@
 
 .alink {
     text-decoration: none;
+}
+.crs{
+    margin-top: 100px;
+}
+.card-text{
+   padding-top: 190px;
 }
