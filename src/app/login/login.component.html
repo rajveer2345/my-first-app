@@ -1,12 +1,12 @@
 <div class="login bg-light w-70">
     <div class="login-container">
         <h2>Login</h2>
-        <form action="#" method="post">
+        <form (ngSubmit)="onSubmit()">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="type your username here">
+            <input type="text" id="username" name="username" placeholder="type your username here" [(ngModel)]="formData.username">
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="type your password here">
+            <input type="password" id="password" name="password" placeholder="type your password here" [(ngModel)]="formData.password">
             <div class="container-login100-form-btn">
                 <div class="wrap-login100-form-btn">
                     <div class="login100-form-bgbtn"></div>

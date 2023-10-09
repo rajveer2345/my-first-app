@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BlogComponent } from './blog/blog.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -30,6 +31,7 @@ import { GreetingComponent } from './greeting/greeting.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot([
       {path: 'dashboard', redirectTo: '/dashboard/greeting', pathMatch: 'full'},
       {path: '', redirectTo: '/home', pathMatch: 'full'},
