@@ -12,6 +12,9 @@ import { EditformComponent } from './editform/editform.component';
 import { UserformComponent } from './userform/userform.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ApiService } from './api.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,8 @@ import { SignupComponent } from './signup/signup.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
       {path: '', redirectTo: '/home', pathMatch: 'full'},
       {path: 'dashboard', component: DashboardComponent,
@@ -46,7 +51,7 @@ import { SignupComponent } from './signup/signup.component';
 
     ]),
   ],
-  providers: [],
+  providers: [HttpClientModule,ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
