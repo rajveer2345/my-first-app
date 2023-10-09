@@ -15,7 +15,7 @@ th, td {
 }
 
 .header {
-    background-color: #f2f2f2;
+    background-color:white;
 }
 header {
    color:black;
@@ -28,4 +28,16 @@ h1 {
 }
 button{
     background-color: white;
+}
+.button-set
+{
+    display: flex;
+    justify-content: space-between;
+}
+.add
+{
+    background-color: blue;
+    color:white;
+    border: 0px;
+    width: 17%;
 }
