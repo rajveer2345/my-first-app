@@ -31,6 +31,7 @@ import { GreetingComponent } from './greeting/greeting.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot([
+      {path: 'dashboard', redirectTo: '/dashboard/greeting', pathMatch: 'full'},
       {path: '', redirectTo: '/home', pathMatch: 'full'},
       {path: 'dashboard', component: DashboardComponent,
       children: [
