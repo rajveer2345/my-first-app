@@ -13,6 +13,7 @@ import { UserformComponent } from './userform/userform.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { AddComponent } from './add/add.component';
+import { GreetingComponent } from './greeting/greeting.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AddComponent } from './add/add.component';
     UserformComponent,
     HomeComponent,
     SignupComponent,
-    AddComponent
+    AddComponent,
+    GreetingComponent
   ],
   imports: [
     BrowserModule,
@@ -34,18 +36,15 @@ import { AddComponent } from './add/add.component';
       children: [
         {
           path:'blog', component: BlogComponent,
-
-        children: [
-          {
-            path:'add blog' , component :AddComponent,
-          }
-        ]
         },
         {
           path:'userform', component: UserformComponent
         },
         {
           path:'editform', component: EditformComponent
+        },
+        {
+          path:'greeting', component: GreetingComponent
         }
       ]},
       {path: 'login', component: LoginComponent},
