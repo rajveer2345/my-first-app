@@ -15,6 +15,8 @@ import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { AddComponent } from './add/add.component';
 import { GreetingComponent } from './greeting/greeting.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from './api.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { GreetingComponent } from './greeting/greeting.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
       {path: 'dashboard', redirectTo: '/dashboard/greeting', pathMatch: 'full'},
@@ -56,7 +59,7 @@ import { GreetingComponent } from './greeting/greeting.component';
 
     ]),
   ],
-  providers: [],
+  providers: [HttpClientModule,ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
