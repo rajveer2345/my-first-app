@@ -1,9 +1,13 @@
 <div class="login bg-light w-70">
+
     <div class="login-container">
+        <div *ngIf="userData" class="text-danger">
+            <p>{{ userData.message }}</p>
+        </div>
         <h2>Login</h2>
         <form (ngSubmit)="onSubmit()">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="type your username here" [(ngModel)]="formData.username">
+            <input type="text" id="username" name="email" placeholder="type your username here" [(ngModel)]="formData.email">
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="type your password here" [(ngModel)]="formData.password">

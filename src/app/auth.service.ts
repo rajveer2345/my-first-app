@@ -29,4 +29,11 @@ export class AuthService extends ApiService {
       body
     }); 
   }
+  loginCheck(body:any) {
+    return this.request({
+      path:`http://localhost:4000/user/login`,
+      method:"POST",
+      body
+    }); 
+  }
 }
