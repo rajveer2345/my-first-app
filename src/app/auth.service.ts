@@ -36,4 +36,11 @@ export class AuthService extends ApiService {
       body
     }); 
   }
+  signupCheck(body:any) {
+    return this.request({
+      path:`http://localhost:4000/user/add`,
+      method:"POST",
+      body
+    }); 
+  }
 }
