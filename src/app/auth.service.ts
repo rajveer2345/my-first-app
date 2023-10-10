@@ -12,9 +12,9 @@ export class AuthService extends ApiService {
       method:"GET",
     }); 
   }
-
+///////////////////////////////////////////////////////////////
   getUserById(id:any) {
-    console.log("id56",id);
+    
     
     return this.request({
       path:`http://localhost:4000/user/${id}`,
@@ -22,13 +22,18 @@ export class AuthService extends ApiService {
     }); 
   }
 
-  createUser(body:any) {
+  ///////////////////////////////////////////////////////////////
+
+  createBlog(body:any) {
     return this.request({
-      path:`http://localhost:4000/user/add`,
+      path:`http://localhost:4000/blog/add`,
       method:"POST",
       body
     }); 
   }
+
+
+  /////////////////////////////////////////////
   loginCheck(body:any) {
     return this.request({
       path:`http://localhost:4000/user/login`,
@@ -43,4 +48,13 @@ export class AuthService extends ApiService {
       body
     }); 
   }
+
+
+  addBlog(body: any) {
+    return this.request({
+      path:`http://localhost:4000/blog/add`,
+      method:"POST",
+      body
+  });
+}
 }

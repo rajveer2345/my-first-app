@@ -6,7 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BlogComponent } from './blog/blog.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
 
 
 import { EditformComponent } from './editform/editform.component';
@@ -34,6 +34,7 @@ import { ApiService } from './api.service';
   imports: [
     BrowserModule,
     HttpClientModule,
+    CommonModule,
     FormsModule,
     RouterModule.forRoot([
       {path: 'dashboard', redirectTo: '/dashboard/greeting', pathMatch: 'full'},
