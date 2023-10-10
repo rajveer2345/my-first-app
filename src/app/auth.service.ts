@@ -35,5 +35,20 @@ export class AuthService extends ApiService {
       method:"POST",
       body
     }); 
+  
   }
+  deleteblog(id:any) {
+      return this.request({
+      path:`http://localhost:4000/blog/delete/${id}`,
+      method:"DELETE",
+    }); 
+  }
+  editblog(id:any) {
+    return this.request({
+    path:`http://localhost:4000/blog/edit/${id}`,
+    method:"PATCH",
+  }); 
+}
+
+ 
 }
