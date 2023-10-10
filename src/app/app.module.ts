@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BlogComponent } from './blog/blog.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,6 @@ import { SignupComponent } from './signup/signup.component';
 import { AddComponent } from './add/add.component';
 import { GreetingComponent } from './greeting/greeting.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { ApiService } from './api.service';
 
 @NgModule({
@@ -36,6 +36,7 @@ import { ApiService } from './api.service';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
+      {path: 'dashboard', redirectTo: '/dashboard/greeting', pathMatch: 'full'},
       {path: '', redirectTo: '/home', pathMatch: 'full'},
       {path: 'dashboard', component: DashboardComponent,
       children: [
