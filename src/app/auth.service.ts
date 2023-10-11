@@ -53,6 +53,7 @@ export class AuthService implements CanActivate  {
       method:"POST",
       body
     }); 
+  
   }
   signupCheck(body:any) {
     return this.auth.request({
@@ -71,15 +72,25 @@ export class AuthService implements CanActivate  {
   });
 }
 
-editBlog(id:any) {
+editBlog(id:any,updatedData:any) {
     
-    
+<<<<<<< HEAD
   return this.auth.request({
+=======
+    console.log("Updating user with ID:",id);
+  return this.request({
+>>>>>>> 6fb727caad9115fdd512a90144ce2888b84ab458
     path:`http://localhost:4000/blog/edit/${id}`,
     method:"PATCH",
+    body:updatedData 
   }); 
 }
-
+singleBlog(id:any){
+  return this.request({
+    path:`http://localhost:4000/blog/${id}`,
+    method:"GET",
+  }); 
+}
 deleteBlog(id:any) {
     
     
