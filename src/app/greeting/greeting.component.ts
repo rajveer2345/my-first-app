@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-greeting',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./greeting.component.css']
 })
 export class GreetingComponent {
-
+  user: any;
+  constructor(private authservice: AuthService){
+    this.user=JSON.parse(localStorage.getItem('user'));
+  }
 }

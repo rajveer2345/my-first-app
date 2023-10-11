@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   formData = { email: '', password: '' };
-  userData: any[] = [];
+  userData: any;
 
   constructor(private authservice: AuthService, private router: Router){}
 
@@ -17,14 +17,14 @@ export class LoginComponent {
   onSubmit() {
      //console.log(this.formData.password);
      this.authservice.loginCheck(this.formData).subscribe((res:any)=>{
-      this.userData = res || [];
-      console.log(this.userData["message"]);
-      console.log(this.userData["data"]);
+    this.userData = res || {};
       if (this.userData["message"] == "success") {
-        // Redirect to another page using Angular Router
-       // localStorage.setItem('user',this.userData['data']);
+  
+        localStorage.setItem('user',JSON.stringify(this.userData?.data));
+        //console.log(localStorage.getItem('user'));
+
         this.router.navigate(['/dashboard']);
-       // console.log(localStorage.getItem('user'));
+       
       }
     })
   
