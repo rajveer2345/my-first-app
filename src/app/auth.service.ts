@@ -61,15 +61,21 @@ export class AuthService extends ApiService {
   });
 }
 
-editBlog(id:any) {
+editBlog(id:any,updatedData:any) {
     
-    
+    console.log("Updating user with ID:",id);
   return this.request({
     path:`http://localhost:4000/blog/edit/${id}`,
     method:"PATCH",
+    body:updatedData 
   }); 
 }
-
+singleBlog(id:any){
+  return this.request({
+    path:`http://localhost:4000/blog/${id}`,
+    method:"GET",
+  }); 
+}
 deleteBlog(id:any) {
     
     

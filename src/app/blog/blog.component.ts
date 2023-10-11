@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
@@ -8,11 +8,15 @@ import { Router } from '@angular/router';
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.css']
 })
-export class BlogComponent {
+export class BlogComponent implements OnInit {
   blogRes: any;
+  updatedData:any={};
+  userData:any;
   blogListData:any[] = []
+  id: any='651ffbe565d01d087be5854e';
   constructor(private http: HttpClient, private authservice: AuthService, private router: Router){
     this.fetchData();
+   
 
   }
 
@@ -35,24 +39,14 @@ this.http.get('http://localhost:4000/blog/getall').subscribe(
   }
 );
 }
-editBlogPost(blogid: any) {
-  //console.log(this.formData.password);
-  this.authservice.editBlog(blogid).subscribe((res:any)=>{
- this.blogRes = res || {};
-  console.log(this.blogRes);
-
-   if (this.blogRes["message"] == "success") {
-     this.router.navigate(['/dashboard/blog']);
-    
-   }else{
-
-   }
- })
-
+edit(id:any){
+  this.router.navigate(['/dashboard/editform'],{
+    queryParams:{
+      id:id
+    }
+  })
 }
-
 deleteBlogPost(blogid: any) {
-
   this.authservice.deleteBlog(blogid).subscribe((res:any)=>{
  this.blogRes = res || {};
  this.fetchData();
