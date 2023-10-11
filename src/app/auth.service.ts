@@ -82,7 +82,7 @@ deleteBlog(id:any) {
     return this.request({
       path: `http://localhost:4000/user/edit/${id}`,
       method: "PATCH",
-      body: updatedData // Include the updated data in the request body
+      body: updatedData 
     });
   }
 }

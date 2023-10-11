@@ -9,31 +9,31 @@
         </div>
         <div class="form-group">
             <label for="username" class="headings">Name</label><br>
-            <input type="text" class="form-control" id="username" [(ngModel)]="updatedData.name"/>
+            <input type="text" class="form-control" id="name" [(ngModel)]="formData.name" value="{{ userData.Name}}" name="name"/>
         </div>
         <div class="form-group">
             <label for="email" class="headings">User Name</label><br>
-            <input type="text" class="form-control" id="email" value="{{ userData.username}}"  placeholder="Enter your username"/>
+            <input type="text" class="form-control" id="username" value="{{ userData.username}}"  placeholder="Enter your username" name="username" [(ngModel)]="formData.username"/>
         </div>
         <div class="form-group">
             <label for="email" class="headings">Email</label><br>
-            <input type="email" class="form-control" id="email" value="{{ userData.email}}" placeholder="Enter your email" />
+            <input disabled type="email" class="form-control" id="email" value="{{ userData.email}}" placeholder="Enter your email" name="email"/>
         </div>
         <div class="form-group">
             <label for="blogTitle" class="headings">Date of birth</label><br>
-            <input type="date" class="form-control" id="blogTitle" placeholder="Enter your dob" [(ngModel)]="updatedData.dob" name="dob"/>
+            <input type="date" class="form-control" id="blogTitle" value="{{ userData.dob}}" placeholder="Enter your dob" [(ngModel)]="formData.dob" name="dob"/>
         </div>
         <div class="form-group">
             <label for="blogTitle" class="headings">Gender</label><br>
-            <input type="text" class="form-control" id="blogTitle" placeholder="Male/Female" [(ngModel)]="updatedData.gender" name="gender"/>
+            <input type="text" class="form-control" id="blogTitle" placeholder="Male/Female" value="{{ userData.gender}}" [(ngModel)]="formData.gender" name="gender"/>
         </div>
         <div class="form-group">
             <label for="blogTitle" class="headings">Nationality</label><br>
-            <input type="text" class="form-control" id="blogTitle" placeholder="Indian" [(ngModel)]="updatedData.nationality" name="nationality"/>
+            <input type="text" class="form-control" id="blogTitle" placeholder="Indian" value="{{ userData.nationality}}" [(ngModel)]="formData.nationality" name="nationality"/>
         </div>
         <div class="form-group">
             <label for="blogTitle" class="headings">Contact number</label><br>
-            <input type="tell" class="form-control" id="blogTitle" placeholder="Your mobile number" [(ngModel)]="updatedData.phone" name="phone">
+            <input type="tell" class="form-control" id="blogTitle" placeholder="Your mobile number" value="{{ userData.phone}}" [(ngModel)]="formData.phone" name="phone">
         </div>
         <button type="submit" class="btn btn-primary" (click)="onSubmit()">Update</button> &nbsp;
         <button  class="btn btn-primary">Back</button>
