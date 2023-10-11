@@ -1,14 +1,17 @@
 <div id="signup-container">
+    <div *ngIf="userData" class="text-danger">
+        <p>{{ userData.message }}</p>
+    </div>
     <header>Sign Up</header>
     <form id="signup-form"(ngSubmit)="onSubmit()">
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required [(ngModel)]="Data.username">
+        <input type="text" id="username" name="username" placeholder="type your username here" required [(ngModel)]="Data.username">
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required [(ngModel)]="Data.email">
+        <input type="email" id="email" name="email" placeholder="type your email here" required [(ngModel)]="Data.email">
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required [(ngModel)]="Data.password">
+        <input type="password" id="password" name="password" placeholder="type your password here" required [(ngModel)]="Data.password">
 
         <button type="submit">Sign Up</button>
 
