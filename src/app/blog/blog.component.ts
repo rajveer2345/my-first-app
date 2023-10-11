@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
+
+
   blogRes: any;
   updatedData:any={};
   userData:any;
@@ -16,8 +18,6 @@ export class BlogComponent implements OnInit {
   id: any='651ffbe565d01d087be5854e';
   constructor(private http: HttpClient, private authservice: AuthService, private router: Router){
     this.fetchData();
-   
-
   }
 
 ngOnInit() {
@@ -44,8 +44,25 @@ edit(id:any){
     queryParams:{
       id:id
     }
-  })
-}
+  })}
+
+
+
+// editBlogPost(blogid: any) {
+//   //console.log(this.formData.password);
+//   this.authservice.editBlog(blogid).subscribe((res:any)=>{
+//  this.blogRes = res || {};
+//   console.log(this.blogRes);
+
+//    if (this.blogRes["message"] == "success") {
+//      this.router.navigate(['/dashboard/editblog']);
+    
+//    }else{
+
+//    }
+//  })
+
+// }
 deleteBlogPost(blogid: any) {
   this.authservice.deleteBlog(blogid).subscribe((res:any)=>{
  this.blogRes = res || {};

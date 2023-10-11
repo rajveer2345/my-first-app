@@ -1,11 +1,13 @@
 <body>
-    <div>
+    <div class="blogpost">
         <header class="button-set">
             <h1>My Blog</h1>
-            <button routerLink="/dashboard/editform" class="add">Add Blog</button>
+            <button routerLink="/dashboard/editblog" class="add">Add Blog</button>
+
         </header>
         <table>
             <tr>
+                <th class="header">Id</th>
 
                 <th class="header">Image</th>
                 <th class="header">Category</th>
@@ -16,10 +18,13 @@
             </tr>
 
             <tr *ngFor="let post of blogListData">
+                <td>{{post._id}}</td>
                 <td><img src="../../assets/almond.jpg"> </td>
                 <td>{{ post.category}}</td>
                 <td>{{ post.title }}</td>
                 <td>{{ post.desc }}</td>
+
+
 
 
                 <th> <button (click)="deleteBlogPost(post?._id)">Delete</button></th>

@@ -1,0 +1,12 @@
+.headings{
+    font-family: sans-serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+}
+.form-control{
+    border-radius: 30px;
+}
+.btn-primary{
+    height: 50%;
+    width: 15%;
+}

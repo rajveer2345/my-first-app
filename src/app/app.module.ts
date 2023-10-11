@@ -17,7 +17,11 @@ import { AddComponent } from './add/add.component';
 import { GreetingComponent } from './greeting/greeting.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './api.service';
+<<<<<<< HEAD
 import { AuthService } from './auth.service';
+=======
+import { EditblogComponent } from './editblog/editblog.component';
+>>>>>>> 51935d8b2a35d6c3dca1a1baa1f014fcaff15437
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { AuthService } from './auth.service';
     HomeComponent,
     SignupComponent,
     AddComponent,
-    GreetingComponent
+    GreetingComponent,
+    EditblogComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +58,9 @@ import { AuthService } from './auth.service';
         },
         {
           path:'greeting', component: GreetingComponent
+        },
+        {
+          path:'editblog', component: EditblogComponent
         }
       ],
       canActivate: [AuthService]
