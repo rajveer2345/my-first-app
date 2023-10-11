@@ -11,7 +11,7 @@ export class SignupComponent {
   Data = { username: '', email: '', password: '' };
   userData: any[] = [];
 
-  constructor(private authservice: AuthService, private router: Router){}
+  constructor(private authservice: AuthService, private router: Router){localStorage.clear();}
   onSubmit(){
     this.authservice.signupCheck(this.Data).subscribe((res:any)=>{
       this.userData = res || [];

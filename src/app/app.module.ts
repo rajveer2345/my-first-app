@@ -17,6 +17,7 @@ import { AddComponent } from './add/add.component';
 import { GreetingComponent } from './greeting/greeting.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './api.service';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,9 @@ import { ApiService } from './api.service';
         {
           path:'greeting', component: GreetingComponent
         }
-      ]},
+      ],
+      canActivate: [AuthService]
+    },
       {path: 'login', component: LoginComponent},
       {path: 'home', component: HomeComponent},
       {path: 'signup', component: SignupComponent},
