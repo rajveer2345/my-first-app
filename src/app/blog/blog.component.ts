@@ -52,7 +52,7 @@ editBlogPost(blogid: any) {
 }
 
 deleteBlogPost(blogid: any) {
-  //console.log(this.formData.password);
+
   this.authservice.deleteBlog(blogid).subscribe((res:any)=>{
  this.blogRes = res || {};
  this.fetchData();
