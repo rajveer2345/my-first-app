@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent {
+
+
   blogRes: any;
   blogListData:any[] = []
   constructor(private http: HttpClient, private authservice: AuthService, private router: Router){
@@ -35,6 +37,9 @@ this.http.get('http://localhost:4000/blog/getall').subscribe(
   }
 );
 }
+
+
+
 editBlogPost(blogid: any) {
   //console.log(this.formData.password);
   this.authservice.editBlog(blogid).subscribe((res:any)=>{
@@ -42,7 +47,7 @@ editBlogPost(blogid: any) {
   console.log(this.blogRes);
 
    if (this.blogRes["message"] == "success") {
-     this.router.navigate(['/dashboard/blog']);
+     this.router.navigate(['/dashboard/editblog']);
     
    }else{
 

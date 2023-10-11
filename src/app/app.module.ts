@@ -17,6 +17,7 @@ import { AddComponent } from './add/add.component';
 import { GreetingComponent } from './greeting/greeting.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './api.service';
+import { EditblogComponent } from './editblog/editblog.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ApiService } from './api.service';
     HomeComponent,
     SignupComponent,
     AddComponent,
-    GreetingComponent
+    GreetingComponent,
+    EditblogComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,9 @@ import { ApiService } from './api.service';
         },
         {
           path:'greeting', component: GreetingComponent
+        },
+        {
+          path:'editblog', component: EditblogComponent
         }
       ]},
       {path: 'login', component: LoginComponent},

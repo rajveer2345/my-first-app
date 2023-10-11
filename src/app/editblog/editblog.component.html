@@ -1,0 +1,28 @@
+<div class="container-fluid">
+       
+    <h2> Blog Information </h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <img src="../../assets/userimageround.png"><label for="image"> &nbsp; Blog Image:</label>
+            <p>&nbsp;</p>
+            <input type="file" class="form-control-file" id="image" accept="image/*">
+        </div>
+        <div class="form-group">
+            <label for="blogTitle" class="headings">Blog Title:</label><br>
+            <input type="text" class="form-control" name="title" id="blogTitle" placeholder="Enter your blog title" [(ngModel)]="blogData.title">
+        </div>
+        <div class="form-group">
+            <label for="blogTitle" class="headings">Blog Category:</label><br>
+            <input type="text" class="form-control" name="category" id="blogTitle" placeholder="Enter your blog category" [(ngModel)]="blogData.category">
+        </div>
+        <div class="form-group">
+            <label for="blogContent" class="headings">Blog Content:</label><br>
+            <textarea class="form-control" id="blogContent" name="desc" rows="4" placeholder="Write your blog description here" [(ngModel)]="blogData.desc"></textarea>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary" >Add</button> &nbsp;
+          
+            <button type="submit" class="btn btn-primary">Back</button>
+        </div>
+    </form>
+</div>
