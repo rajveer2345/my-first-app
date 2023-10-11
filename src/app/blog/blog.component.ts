@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 @Component({
@@ -30,9 +32,9 @@ export class BlogComponent {
   
   }
 
-  deleteBlog() {
+  deleteBlog(bid:any) {
      //console.log(this.formData.password);
-     this.authservice.deleteblog("651ffbb0557b41e75d440d94").subscribe((res:any)=>{
+     this.authservice.deleteblog(bid).subscribe((res:any)=>{
       this.userData = res || [];
       console.log(this.userData["message"]);
       //console.log(this.userData["data"]);
