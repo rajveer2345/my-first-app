@@ -17,13 +17,10 @@ export class LoginComponent {
   onSubmit() {
      //console.log(this.formData.password);
      this.authservice.loginCheck(this.formData).subscribe((res:any)=>{
-      this.userData = res || [];
-      console.log(this.userData?.data?.username,'ggggg');
-      //console.log(this.userData["message"]);
-      //console.log(this.userData["data"]["email"]);
+    this.userData = res || {};
       if (this.userData["message"] == "success") {
   
-        //localStorage.setItem('user',this.userData["data"]["email"]);
+        localStorage.setItem('user',JSON.stringify(this.userData?.data));
         //console.log(localStorage.getItem('user'));
 
         this.router.navigate(['/dashboard']);
