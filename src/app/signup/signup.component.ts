@@ -17,7 +17,7 @@ export class SignupComponent {
       this.userData = res || [];
       console.log(this.userData["message"]);
       console.log(this.userData["data"]);
-      if (this.userData["message"] == "user added successfully") {
+      if (this.userData["message"] == "User added successfully") {
   
         this.router.navigate(['/login']);
      
