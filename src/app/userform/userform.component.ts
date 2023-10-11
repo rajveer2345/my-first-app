@@ -9,28 +9,23 @@ import { Router } from '@angular/router';
 })
 export class UserformComponent implements OnInit {
   formData={ name:'', username:'',email:'', dob:'',gender:'',nationality:'', phone:''};
-  username: any; // Replace with the actual username
+  username: any; 
   userData: any;
-  updatedData: any = {}; // Initialize as an empty object
+  updatedData: any = {};
+  loggeduser= JSON.parse(localStorage.getItem('user'));
 
-  id: any= '651fdd76971af51f49f7350e';
+  id: any=  this.loggeduser?._id;
 
-  constructor(private authservice: AuthService, private router: Router){}
- 
-
+  constructor(private authservice: AuthService, private router: Router){ }
   fetchUserData() {
     this.authservice.getUserById(this.id).subscribe(
       (data) => {
         this.userData = data["data"];
-        console.log(this.userData["username"]);
-        console.log(this.userData["email"]);
-        console.log(this.userData["gender"]);
-        console.log(this.userData["email"]);
-        // Handle successful data retrieval, e.g., update the component's properties
-      },
+        this.formData={...this.userData};
+        },
       (error) => {
         console.error("Error fetching user data", error);
-        // Handle error, e.g., display an error message to the user
+        
       }
     );
     }
@@ -40,15 +35,30 @@ export class UserformComponent implements OnInit {
     }
 
     onSubmit() {
+      this.updatedData.name = this.formData.name;
+      this.updatedData.username = this.formData.username;
+      this.updatedData.dob = this.formData.dob;
+      this.updatedData.gender = this.formData.gender;
+      this.updatedData.nationality = this.formData.nationality;
+      this.updatedData.phone = this.formData.phone;
       this.authservice.edit(this.id, this.updatedData).subscribe(
-        (response) => {
-          console.log("User updated successfully", response);
+        (response : any) => {
+          if (response.message === 'updated successfully') {
+          console.log(response);
+          let respback=response;
+          alert('Updated Successfully');
           this.userData = { ...this.updatedData };
-          this.router.navigate(['/dashboard'])
+          localStorage.setItem('user',JSON.stringify(respback?.data));
+         this.router.navigate(['/dashboard']);
+
+          }
+          else{
+            alert('Error in updation');
+          }
         },
         (error) => {
           console.error("Error updating user", error);
-          // Handle error, e.g., display an error message to the user
+          
         }
       );
     }
