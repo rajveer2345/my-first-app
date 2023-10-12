@@ -34,7 +34,7 @@
 .border2 {
     border-radius: 12px;
     height: 300px;
-    width: 210px;
+    width: 220px;
     background-image: url('../../assets/image2.jpg');
     background-size: cover;
     background-position: center;
@@ -42,7 +42,7 @@
 .cards{
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 40px;
     margin-top: 10%;
 
 }
