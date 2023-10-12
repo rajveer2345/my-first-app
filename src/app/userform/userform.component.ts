@@ -59,7 +59,7 @@ export class UserformComponent implements OnInit {
         (error) => {
           console.error("Error updating user", error);
           
-        }
+          }
       );
     }
-  }
+}
