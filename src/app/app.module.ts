@@ -7,7 +7,9 @@ import { BlogComponent } from './blog/blog.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireStorageModule } from "@angular/fire/compat/storage";
+import { environment } from 'src/environments/environment.development'
 
 import { EditformComponent } from './editform/editform.component';
 import { UserformComponent } from './userform/userform.component';
@@ -40,6 +42,8 @@ import { AuthLoginService } from './auth-login.service';
     HttpClientModule,
     CommonModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment),
+    AngularFireStorageModule,
     RouterModule.forRoot([
       {path: 'dashboard', redirectTo: '/dashboard/greeting', pathMatch: 'full'},
       {path: '', redirectTo: '/home', pathMatch: 'full'},

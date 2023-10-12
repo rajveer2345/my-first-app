@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+
 
 @Component({
   selector: 'app-editblog',
   templateUrl: './editblog.component.html',
-  styleUrls: ['./editblog.component.css']
+  styleUrls: ['./editblog.component.css'] 
 })
 export class EditblogComponent {
 
@@ -13,7 +15,20 @@ export class EditblogComponent {
   
   userData: any[] = [];
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router,private fireStorage:AngularFireStorage) {}
+  title= 'imageupload';
+
+
+  async onFileChange(event:any){
+    const file=event.target.files[0]
+    if (file){
+      const path ='yt/${file.name}'
+      const uploadTask = await this.fireStorage.upload(path,file)
+      const url = await uploadTask.ref.getDownloadURL()
+      console.log(url)
+      console.log(file);
+    }
+  }
 
   // Define a function to add a new blog
   // addNewBlog() {
