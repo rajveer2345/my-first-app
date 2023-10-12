@@ -20,6 +20,9 @@ import { ApiService } from './api.service';
 import { AuthService } from './auth.service';
 import { EditblogComponent } from './editblog/editblog.component';
 import { AuthLoginService } from './auth-login.service';
+import {AngularFireModule} from '@angular/fire/compat';
+import {AngularFireStorageModule} from '@angular/fire/compat/storage';
+import { environment } from 'src/environments/environment.development';
 
 @NgModule({
   declarations: [
@@ -34,12 +37,15 @@ import { AuthLoginService } from './auth-login.service';
     AddComponent,
     GreetingComponent,
     EditblogComponent
+  
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     CommonModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
     RouterModule.forRoot([
       {path: 'dashboard', redirectTo: '/dashboard/greeting', pathMatch: 'full'},
       {path: '', redirectTo: '/home', pathMatch: 'full'},

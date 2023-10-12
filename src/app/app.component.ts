@@ -9,6 +9,7 @@ import { AuthService } from './auth.service';
 export class AppComponent {
   title = 'app';
   userData: any[] = [];
+  
 
   constructor(private authservice: AuthService){
     // this.authservice.getAllUser().subscribe((res:any)=>{
