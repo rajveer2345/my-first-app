@@ -19,7 +19,7 @@
 
             <tr *ngFor="let post of blogListData; let i = index">
                 <td>{{i+1}}</td>
-                <td><img src="../../assets/almond.jpg"> </td>
+                <td><img src={{post?.image}}> </td>
                 <td>{{ post.category}}</td>
                 <td>{{ post.title }}</td>
                 <td>{{ post.desc }}</td>

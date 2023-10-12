@@ -1,11 +1,10 @@
 <div class="container-fluid">
-       
+
     <h2> Blog Information </h2>
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <img src="../../assets/userimageround.png"><label for="image"> &nbsp; Blog Image:</label>
             <p>&nbsp;</p>
-            <input type="file" class="form-control-file" id="image" accept="image/*">
+            <input type="file" class="form-control-file" id="image" accept="image/*" (change)="onFileChange($event)">
         </div>
         <div class="form-group">
             <label for="blogTitle" class="headings">Blog Title:</label><br>
@@ -20,8 +19,8 @@
             <textarea class="form-control" id="blogContent" name="desc" rows="4" placeholder="Write your blog description here" [(ngModel)]="blogData.desc"></textarea>
         </div>
         <div>
-            <button type="submit" class="btn btn-primary" >Add</button> &nbsp;
-          
+            <button type="submit" class="btn btn-primary">Add</button> &nbsp;
+
             <button type="submit" class="btn btn-primary">Back</button>
         </div>
     </form>
