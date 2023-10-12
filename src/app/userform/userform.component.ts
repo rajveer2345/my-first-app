@@ -44,7 +44,7 @@ export class UserformComponent implements OnInit {
       this.authservice.edit(this.id, this.updatedData).subscribe(
         (response : any) => {
           if (response.message === 'updated successfully') {
-          console.log(response);
+          //console.log(response);
           let respback=response;
           alert('Updated Successfully');
           this.userData = { ...this.updatedData };

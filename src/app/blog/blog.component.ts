@@ -66,16 +66,17 @@ edit(id:any){
 deleteBlogPost(blogid: any) {
   this.authservice.deleteBlog(blogid).subscribe((res:any)=>{
  this.blogRes = res || {};
- this.fetchData();
+
 
   console.log(this.blogRes);
 
-  //  if (this.blogRes["message"] == "success") {
-  //    this.router.navigate(['/dashboard']);
-    
-  //  }else{
+  if (this.blogRes["message"] == "success") {
+    alert("Deleted successfully");
+    this.fetchData();
+    }else{
+      alert("error deleting post");
 
-  //  }
+   }
  })
 
 }

@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './api.service';
 import { AuthService } from './auth.service';
 import { EditblogComponent } from './editblog/editblog.component';
+import { AuthLoginService } from './auth-login.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { EditblogComponent } from './editblog/editblog.component';
     RouterModule.forRoot([
       {path: 'dashboard', redirectTo: '/dashboard/greeting', pathMatch: 'full'},
       {path: '', redirectTo: '/home', pathMatch: 'full'},
-      {path: 'dashboard', component: DashboardComponent,
+      {      canActivate: [AuthService],
+        path: 'dashboard', component: DashboardComponent,
       children: [
         {
           path:'blog', component: BlogComponent,
@@ -60,9 +62,8 @@ import { EditblogComponent } from './editblog/editblog.component';
           path:'editblog', component: EditblogComponent
         }
       ],
-      canActivate: [AuthService]
     },
-      {path: 'login', component: LoginComponent},
+      {canActivate:[AuthLoginService],path: 'login', component: LoginComponent},
       {path: 'home', component: HomeComponent},
       {path: 'signup', component: SignupComponent},
 

@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   blogListData:any;
   id: any='651ffbe565d01d087be5854e';
   constructor(private http: HttpClient, private authservice: AuthService, private router: Router){
-    localStorage.clear();
+    // localStorage.clear();
     this.fetchData();
    
 

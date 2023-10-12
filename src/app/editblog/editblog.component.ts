@@ -33,9 +33,15 @@ export class EditblogComponent {
     this.authService.createBlog(this.blogData).subscribe((res:any)=>{
      this.userData = res || [];
      console.log(this.userData["message"]);
-     console.log(this.userData["data"]);
-     this.router.navigate(['/dashboard/blog'])
-  
+
+    if(this.userData["message"]=="blog added successfully"){
+
+      alert("blog added successfully");
+      this.router.navigate(['/dashboard/blog'])
+    }else{ 
+
+      alert("Something went wrong");
+    }
    })
  
  }
