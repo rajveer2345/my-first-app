@@ -7,6 +7,9 @@ import { BlogComponent } from './blog/blog.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import { environment } from 'src/environments/environment.development';
 
 
 import { EditformComponent } from './editform/editform.component';
@@ -37,6 +40,8 @@ import { AuthLoginService } from './auth-login.service';
     EditblogComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
     BrowserModule,
     HttpClientModule,
     CommonModule,

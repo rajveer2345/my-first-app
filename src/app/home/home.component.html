@@ -28,6 +28,7 @@
                   <div *ngFor="let post of blogListData" >
                   
                     <div  class="border2 ">
+                        <div class="text-white  text-wrap" >  <img src="{{ post.image }}" class="img1" > </div>
                         <div class="text-white ps-4 pt-3 text-wrap" >{{ post.title }}</div>
                         <div class="text-white ps-4 card-text text-wrap">{{ post.desc }}</div>
                         <div class="text-white ps-4">{{ post.date }}</div>
