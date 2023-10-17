@@ -1,0 +1,11 @@
+<div class="container-fluid justify-content-center">
+     <div class="display-data">
+        <h2>Entered Details</h2>
+        <p><td><img src={{viewBlog?.image}}> </td></p>
+        <p><u><b>Blog Title</b></u> : &nbsp; {{ viewBlog.title }} </p>
+        <p><u><b>Blog Category</b></u> : &nbsp; {{ viewBlog.category }} </p>
+        <p><u><b>Blog Description</b> </u>: &nbsp; {{ viewBlog.desc }} </p>
+     </div>
+
+     <button class="btn btn-primary" (click)="back()">Back</button>
+</div>

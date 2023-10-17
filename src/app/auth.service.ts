@@ -6,6 +6,8 @@ import { CanActivate, Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class AuthService implements CanActivate  {
   constructor(public auth: ApiService, public router: Router) {}
   canActivate(): boolean {
@@ -104,4 +106,65 @@ deleteBlog(id:any) {
       body: updatedData 
     });
   }
+
+  //project api call
+  createProject(body:any) {
+    return this.auth.request({
+      path:`http://localhost:4000/project/add`,
+      method:"POST",
+      body
+    }); 
+  }
+  addProject(body: any) {
+    return this.auth.request({
+      path:`http://localhost:4000/project/add`,
+      method:"POST",
+      body
+  });
+}
+
+editProject(id:any,updatedData:any) {
+    
+    console.log("Updating user with ID:",id);
+  return this.auth.request({
+    path:`http://localhost:4000/project/edit/${id}`,
+    method:"PATCH",
+    body:updatedData 
+  }); 
+}
+singleProject(id:any){
+  return this.auth.request({
+    path:`http://localhost:4000/project/${id}`,
+    method:"GET",
+  }); 
+}
+deleteProject(id:any) {
+    return this.auth.request({
+    path:`http://localhost:4000/project/delete/${id}`,
+    method:"DELETE",
+  }); 
+}
+  
+// contact and enquiry api
+
+submitInfo(body: any) {
+  return this.auth.request({
+    path:`http://localhost:4000/enquiry/add`,
+    method:"POST",
+    body
+});
+}
+getEnquiry() {
+  return this.auth.request({
+    path:`http://localhost:4000/enquiry/getall`,
+    method:"GET",
+  }); 
+}
+
+singleEnquiry(id:any){
+  return this.auth.request({
+    path:`http://localhost:4000/enquiry/${id}`,
+    method:"GET",
+  }); 
+}
 }

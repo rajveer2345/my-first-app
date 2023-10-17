@@ -2,9 +2,10 @@
     
     <div class="blogpost">
         <header class="button-set">
-            <h1>My Blog</h1>
+            <h1>My Project</h1>
+
            
-            <button routerLink="/dashboard/editblog" class="add">Add Blog</button>
+            <button routerLink="/dashboard/editproject" class="add">Add Project</button>
 
         </header>
         <input type="text"  placeholder="Search by title"  [(ngModel)]="title">
@@ -12,28 +13,26 @@
             <tr>
                 <th class="header">S. No.</th>
                 <th class="header">Image</th>
-                <th class="header">Category</th>
                 <th class="header">Title</th>
                 <th class="header">Description</th>
+                <th class="header">Type</th>
+                <th class="header">URL</th>
                 <th class="header"></th>
                 <th class="header"></th>
             </tr>
 
-            <tr *ngFor="let post of blogListData | Searchfilter : title ; let i = index">
+            <tr *ngFor="let post of projectListData | Searchfilter : title ; let i = index">
                 <td>{{i+1}}</td>
                 <td><img src={{post?.image}}> </td>
-                <td>{{ post.category}}</td>
                 <td>{{ post.title }}</td>
                 <td>{{ post.desc }}</td>
+                <td>{{ post.type }}</td>
+                <td>{{ post.url }}</td>
 
-
-                <th> <button (click)="deleteBlogPost(post?._id)">Delete</button></th>
+                <th> <button (click)="deleteProjectPost(post?._id)">Delete</button></th>
                 <th> <button (click)="edit(post?._id)">Edit</button></th>
-                <th><button (click)="view(post?._id)">View</button></th>
 
             </tr>
-
-            
         </table>
     </div>
 </body>

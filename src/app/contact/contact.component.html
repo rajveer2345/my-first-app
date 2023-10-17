@@ -1,0 +1,44 @@
+<section class="banner">
+        <h1>Contact Us</h1>
+    
+</section>
+
+<!-- Contact form -->
+<section class="contact-form">
+    <div class="form-container">
+        <h2>Your Details</h2>
+        <form action="#" method="POST" (ngSubmit)="onSubmit()">
+
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" required [(ngModel)]="formData.name">
+
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email" required [(ngModel)]="formData.email">
+
+            <label for="email">Subject: </label>
+            <input type="email" id="subject" name="subject" required [(ngModel)]="formData.subject">
+
+            <label for="message">Message: </label>
+            <textarea id="message" name="message" rows="4" required [(ngModel)]="formData.message"></textarea>
+
+            <button type="submit" class="submit-button"  >Submit</button>
+        </form>
+    </div>
+</section>
+
+<!-- Company contact info -->
+<section class="contact-info">
+    <h2>Contact Information</h2>
+    <address>
+        Programming Hub<br>
+        123 Main Street<br>
+        Delhi,302022<br>
+        Phone: <a href="tel:1234567890">123-456-7890</a><br>
+        Email: <a href="mailto:info@example.com">programming@hub.com</a>
+    </address>
+</section>
+
+<!-- Footer section -->
+<footer>
+    <p>© 2023 Your Company. All rights reserved.</p>
+</footer>

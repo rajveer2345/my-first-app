@@ -23,6 +23,14 @@ import { ApiService } from './api.service';
 import { AuthService } from './auth.service';
 import { EditblogComponent } from './editblog/editblog.component';
 import { AuthLoginService } from './auth-login.service';
+import { SearchPipe } from './search.pipe';
+import { ProjectsComponent } from './projects/projects.component';
+import { ProjectformComponent } from './projectform/projectform.component';
+import { EditprojectComponent } from './editproject/editproject.component';
+import { ContactComponent } from './contact/contact.component';
+import { EnquiryComponent } from './enquiry/enquiry.component';
+import { EnquirydetailComponent } from './enquirydetail/enquirydetail.component';
+import { BlogdetailComponent } from './blogdetail/blogdetail.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +44,16 @@ import { AuthLoginService } from './auth-login.service';
     SignupComponent,
     AddComponent,
     GreetingComponent,
-    EditblogComponent
+    EditblogComponent,
+    SearchPipe,
+    ProjectsComponent,
+    ProjectformComponent,
+    EditprojectComponent,
+    ContactComponent,
+    EnquiryComponent,
+    EnquirydetailComponent,
+    BlogdetailComponent,
+   
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -65,13 +82,31 @@ import { AuthLoginService } from './auth-login.service';
         },
         {
           path:'editblog', component: EditblogComponent
+        },
+        {
+          path:'projects', component: ProjectsComponent,
+        },
+        {
+          path:'projectform', component: ProjectformComponent,
+        },
+        {
+          path:'editproject', component: EditprojectComponent,
+        },
+        {
+          path:'enquiry', component: EnquiryComponent,
+        },
+        {
+          path:'blogdetail', component: BlogdetailComponent,
+        },
+        {
+          path:'enquirydetail', component: EnquirydetailComponent,
         }
       ],
     },
       {canActivate:[AuthLoginService],path: 'login', component: LoginComponent},
       {path: 'home', component: HomeComponent},
       {path: 'signup', component: SignupComponent},
-
+      {path: 'contact', component: ContactComponent},
     ]),
   ],
   providers: [HttpClientModule,ApiService],
