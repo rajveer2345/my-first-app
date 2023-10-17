@@ -11,26 +11,22 @@ import { ActivatedRoute } from '@angular/router';
 export class EnquirydetailComponent {
   viewEnquiry: any ={};
    
-  constructor(private route: ActivatedRoute, private authService: AuthService , private router: Router  ) { }
+  constructor(private activatedRoute: ActivatedRoute, private authService: AuthService , private router: Router  ) { }
 
   ngOnInit() {
-   
-    this.route.params.subscribe((params) => {
+    this.activatedRoute.queryParams.subscribe((params: any) => {
+      console.log("data565", params);
       const userId: String = params['id'];
-      console.log(userId);
-      
-      
       if (userId) {
-      this.authService.singleEnquiry(userId).subscribe(
-        (data) => {
-          
-          this.viewEnquiry = data?.data;
-          console.log(this.viewEnquiry);
-        },
-        (error) => {
-          console.error('Error fetching user ', error);
-        }
-      );
+        this.authService.singleEnquiry(userId).subscribe(
+          (data) => {
+            this.viewEnquiry = data?.data;
+            console.log(this.viewEnquiry);
+          },
+          (error) => {
+            console.error('Error fetching user ', error);
+          }
+        );
       }
     });
   }
