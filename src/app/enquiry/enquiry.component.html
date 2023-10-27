@@ -44,20 +44,14 @@
         </button>
     <ul class="dropdown-menu">
         <li (click)="vview(post?._id)" class="dropdown-item">View Detail</li>       
-        <li class="dropdown-item">Send via Email </li>
+        <li (click)="sendEmail(post.email,post.subject,post.message,post.name)" class="dropdown-item">Send via Email </li>
     </ul>
 </div>
 
             </tr>
                 <!-- <th> <button (click)="deleteBlogPost(post?._id)">Delete</button></th>
                 <th> <button (click)="edit(post?._id)">Edit</button></th>
-                <th> <button (click)="viewBlogPost(post?._id)">View</button></th>  -->
-
-              
-                
-
-
-         
+                <th> <button (click)="viewBlogPost(post?._id)">View</button></th>  -->         
         </table>
     </div>
 </body>

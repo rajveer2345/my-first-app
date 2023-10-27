@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService implements CanActivate  {
-    
+
 
 
   // createProject(projectData: { image: string; category: string; title: string; desc: string; userId: string; url: string; type: string; }) {
@@ -292,6 +292,16 @@ singleType(id:any){
   return this.auth.request({
     path:`http://localhost:4000/type/get/${id}`,
     method:"GET",
+  }); 
+}
+
+sendEmail(address,subject,message,name) {
+  let addressArray = []
+  addressArray.push(address)
+  return this.auth.request({
+    path:`http://localhost:4000/sendEmail`,
+    method:"POST",
+    body:{address:addressArray, subject: subject, message: message, name: name}
   }); 
 }
 

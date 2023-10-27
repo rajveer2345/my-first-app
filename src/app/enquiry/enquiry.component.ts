@@ -71,4 +71,18 @@ const userRole =JSON.parse(localStorage.getItem('user'))
     }
   })}
 
+  sendEmail(address,subject,message,name) {
+  
+    this.authService.sendEmail(address, subject,message,name).subscribe(
+      (response) => {
+        // Handle success, e.g., show a confirmation message
+        console.log(response);
+      },
+      (error) => {
+        // Handle error, e.g., show an error message
+      }
+    );
+  }
+  
+
 }
