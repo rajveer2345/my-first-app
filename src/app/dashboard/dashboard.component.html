@@ -5,7 +5,7 @@
 
     <div class="navbar-nav">
         <div class="nav-item text-nowrap">
-            <a class="nav-link px-3 text-light" href="#" (click)="logout()">Sign out</a>
+            <a class="nav-link px-3 text-light" href="#" (click)="logout()" routerLink="/login">Sign out</a>
         </div>
     </div>
 </header>
@@ -20,16 +20,44 @@
                             <span data-feather="home"></span> Dashboard
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" *ngIf="userRole != 'admin'">
                         <a class="nav-link" href="#" routerLink="/dashboard/userform">
                             <span data-feather="file"></span> Profile
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item"  *ngIf="userRole != 'admin'">
                         <a class="nav-link" href="#" routerLink="/dashboard/blog">
                             <span data-feather="file"></span> Blog posts
                         </a>
                     </li>
+
+                    <li class="nav-item" *ngIf="userRole != 'admin'">
+                        <a class="nav-link" href="#" routerLink="/dashboard/project">
+                            <span data-feather="file"></span> Project
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item" *ngIf="userRole === 'admin'">
+                        <a class="nav-link" href="#" routerLink="/dashboard/enquiry">
+                            <span data-feather="file"></span> Enquiry
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item" *ngIf="userRole === 'admin'">
+                        <a class="nav-link" href="#" routerLink="/dashboard/users">
+                            <span data-feather="file"></span> Users
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item" *ngIf="userRole === 'admin'">
+                        <a class="nav-link" href="#" routerLink="/dashboard/projtype">
+                            <span data-feather="file"></span> Project Type
+                        </a>
+                    </li>
+                    
+
+
 
                 </ul>
 

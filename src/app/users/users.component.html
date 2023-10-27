@@ -1,0 +1,32 @@
+<body>
+    <div class="blogpost">
+        <header class="button-set">
+            <h1>Users</h1>
+                </header>
+        <table>
+            <tr>
+                <th class="header">S. No.</th>
+                <th class="header">Username</th>
+                <th class="header">Email</th> 
+                <th class="header">Role</th>
+                <th class="header">Status</th>
+            </tr>
+            <tr *ngFor="let post of usersListData; let i = index">
+                <ng-container *ngIf="post.role === 'user'">
+                <td>{{i+1}}</td>
+                <td>{{ post.username }}</td>
+                <td>{{ post.email }}</td>
+                <td>{{ post.role}}</td>
+                <td> <button (click)="updateStatus(post?.status, post?._id)" [ngClass]="{ 'resolved': post.status === 'resolved', 'pending': post.status === 'pending' }">
+                    
+                    {{post.status === 'resolved' ? 'Resolved' : 'Pending'}}
+
+                </button></td>
+                </ng-container>
+            </tr>
+            
+            </table>
+            </div>
+            </body>
+
+         

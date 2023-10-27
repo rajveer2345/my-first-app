@@ -8,8 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  Data = { username: '', email: '', password: '' };
+  Data = { username: '', email: '', password: '' ,role:'user'};
   userData: any[] = [];
+
 
   constructor(private authservice: AuthService, private router: Router){}
   onSubmit(){

@@ -6,35 +6,34 @@
 
         </header>
         <table>
+            <div class="search-bar">
+                <input type="input" placeholder="Search..." name="searchQuery" [(ngModel)]="searchQuery" (ngModelChange)="search()"/>
+                <button (click)="search()">Search</button>
+              </div>
+              
             <tr>
                 <th class="header">S. No.</th>
 
                 <th class="header">Image</th>
                 <th class="header">Category</th>
                 <th class="header">Title</th>
-                <th class="header">Description</th>
-                <th class="header"></th>
-                <th class="header"></th>
+                <th class="header">Content</th>
+                <th class="header">Action</th>
+                <th class="header">Action</th>
+                <th class="header">Action</th>
             </tr>
 
             <tr *ngFor="let post of blogListData; let i = index">
                 <td>{{i+1}}</td>
-                <td><img src="../../assets/almond.jpg"> </td>
+                <td><img src={{post?.image}}> </td>
                 <td>{{ post.category}}</td>
                 <td>{{ post.title }}</td>
-                <td>{{ post.desc }}</td>
+                <td [innerHTML] = " post.desc "></td>
 
-
-
-
-                <th> <button (click)="deleteBlogPost(post?._id)">Delete</button></th>
-                <th> <button (click)="edit(post?._id)">Edit</button></th>
-
+                <th> <button class="set1" (click)="deleteBlogPost(post?._id)">Delete</button></th>
+                <th> <button class="set2" (click)="edit(post?._id)">Edit</button></th>
+                <th> <button class="set3" (click)="view(post?._id)">View</button></th>
             </tr>
-
-
-
-
         </table>
     </div>
 </body>

@@ -1,0 +1,46 @@
+<body>
+    <div class="blogpost">
+        <header class="button-set">
+            <h1>My Project</h1>
+            <button routerLink="/dashboard/addproject" class="add">Add Project</button>
+
+        </header>
+        <table>
+            <!-- <div class="search-bar">
+                <input type="text" placeholder="Search..." name="searchQuery" [(ngModel)]="searchQuery" />
+                <button (click)="search()">Search</button>
+              </div> -->
+              
+            <tr>
+                <th class="header">S. No.</th>
+
+                <th class="header">Image</th>
+           
+                <th class="header">Title</th>
+                <!-- <th class="header">Description</th> -->
+                <th class="header">Type</th> 
+                <th class="header">URL</th>
+                
+                <th class="header">Action</th>
+                <th class="header">Action</th>
+            
+            </tr>
+
+            <tr *ngFor="let post of projectListData; let i = index">
+                <td>{{i+1}}</td>
+                <td><img src={{post?.image}}> </td>
+          
+                <td>{{ post.title }}</td>
+                <!-- <td>{{ post.desc }}</td> -->
+                <td>{{ post.type }}</td>
+
+                <td>{{ post.url }}</td>
+
+                <th> <button class= "set1" (click)="deleteProjectPost(post?._id)">Delete</button></th>
+                <th> <button class= "set2" (click)="edit(post?._id)">Edit</button></th>
+       
+
+            </tr>
+        </table>
+    </div>
+</body>

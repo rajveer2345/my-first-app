@@ -1,0 +1,10 @@
+<header>
+    <h1>Edit Type</h1>
+</header>
+
+    <form (ngSubmit)="updateType()">
+        <label for="type">Type:</label>
+        <input type="text" id="type" name="type" required [(ngModel)]="updatedData.type">
+        <br><br>
+        <button type="submit">UPdate</button>
+    </form>

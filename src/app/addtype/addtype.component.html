@@ -1,0 +1,9 @@
+<body>
+<h1>Type Form</h1>
+    <form  (ngSubmit)="onSubmit()">
+        <label for="type">Type:</label>
+        <input type="text" id="type"class="form-control" name="type" placeholder="Enter type here"  [(ngModel)]="projTypeData.type">
+       
+        <button type="submit" class="set" > Add Type</button>
+    </form>
+</body>

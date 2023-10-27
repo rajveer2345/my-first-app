@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { AngularFireStorage } from "@angular/fire/compat/storage";
+import { FormControl,FormGroup,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-userform',
@@ -8,15 +10,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./userform.component.css']
 })
 export class UserformComponent implements OnInit {
-  formData={ name:'', username:'',email:'', dob:'',gender:'',nationality:'', phone:''};
+  formData={ name:'', username:'',email:'', dob:'',gender:'',nationality:'', phone:'', image: ''};
   username: any; 
   userData: any;
   updatedData: any = {};
+  file: any;
   loggeduser= JSON.parse(localStorage.getItem('user'));
 
   id: any=  this.loggeduser?._id;
 
-  constructor(private authservice: AuthService, private router: Router){ }
+  constructor(private authservice: AuthService, private router: Router,  private fireStorage:AngularFireStorage){ }
   fetchUserData() {
     this.authservice.getUserById(this.id).subscribe(
       (data) => {
@@ -34,13 +37,30 @@ export class UserformComponent implements OnInit {
       this.fetchUserData();
     }
 
-    onSubmit() {
+    //
+    // registerForm=new FormGroup({
+    //     email:new FormControl("",[Validators.required])
+    // })
+
+    onFileChange(event:any){ 
+      this.file = event.target.files[0];
+    }
+
+    async onSubmit() {
       this.updatedData.name = this.formData.name;
       this.updatedData.username = this.formData.username;
       this.updatedData.dob = this.formData.dob;
       this.updatedData.gender = this.formData.gender;
       this.updatedData.nationality = this.formData.nationality;
       this.updatedData.phone = this.formData.phone;
+      this.updatedData.image = this.formData.image;
+
+      const path = `user/${this.file.name}`
+      const uploadTask =await this.fireStorage.upload(path, this.file)
+      const url = await uploadTask.ref.getDownloadURL()
+      this.updatedData.image = url;
+      
+      console.log(this.updatedData.name);
       this.authservice.edit(this.id, this.updatedData).subscribe(
         (response : any) => {
           if (response.message === 'updated successfully') {
@@ -62,4 +82,9 @@ export class UserformComponent implements OnInit {
         }
       );
     }
+    // registerSubmitted()
+    //   {
+    //     console.log(this.registerForm.get("email"));
+    //   }
+    
   }

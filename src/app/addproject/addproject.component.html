@@ -1,0 +1,33 @@
+<div class="container-fluid">
+
+    <h2> Project Information </h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <p>&nbsp;</p>
+            <input type="file" class="form-control-file" id="image" accept="image/*" (change)="onFileChange($event)">
+        </div>
+        <div class="form-group">
+            <label for="blogTitle" class="headings">Project Title:</label><br>
+            <input type="text" class="form-control" name="title" id="blogTitle" placeholder="Enter your project title" [(ngModel)]="projectData.title">
+        </div>
+        <div class="form-group">
+            <label for="blogTitle" class="headings">Project type:</label><br>
+            <select name="type" [(ngModel)]="projectData.type" >
+                <option *ngFor="let dd of typeData"[value]="dd.type">{{ dd.type }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="blogContent" class="headings">Project Content:</label><br>
+            <textarea class="form-control" id="blogContent" name="desc" rows="4" placeholder="Write your project description here" [(ngModel)]="projectData.desc"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="blogContent" class="headings">Project URL:</label><br>
+            <input type="url" class="form-control" id="projectURL" name="url" placeholder="Enter a valid URL" [(ngModel)]="projectData.url" pattern="https?://.+">
+            <small style="color:red" class="form-text">Please enter a valid URL starting with http:// or https://</small>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Add</button> &nbsp;
+            <button type="submit" class="btn btn-primary">Back</button>
+        </div>
+    </form>
+</div>

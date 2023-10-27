@@ -1,11 +1,10 @@
 export const environment = {
     firebaseConfig : {
-        apiKey: "AIzaSyCsS9YEZCstB0TErtH0rCin22KdLIOd3wo",
-        authDomain: "image-8e63f.firebaseapp.com",
-        projectId: "image-8e63f",
-        storageBucket: "image-8e63f.appspot.com",
-        messagingSenderId: "825811240661",
-        appId: "1:825811240661:web:f637aac59067766d27845c",
-        measurementId: "G-QY0DMT2BKN"
+        apiKey: "AIzaSyB6Ijl8sFH3DZ1cdoJh03H1EM1j_8OBGhA",
+        authDomain: "pocapp-96984.firebaseapp.com",
+        projectId: "pocapp-96984",
+        storageBucket: "pocapp-96984.appspot.com",
+        messagingSenderId: "154143349738",
+        appId: "1:154143349738:web:b44f2574c67fe320803093"
       }
-};
+}; 

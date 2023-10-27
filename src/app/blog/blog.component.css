@@ -48,3 +48,31 @@ button{
     flex-wrap: wrap;
 
 } */
+
+.set1{
+    background-color: red;
+    color:white;
+    border:0px;
+    height: 29px;
+    width: 86px;
+    text-align: center
+}
+.set2
+{
+    background-color: blue;
+    color:white;
+    border:0px;
+    height: 29px;
+    width: 86px;
+    text-align: center; 
+}
+
+.set3
+{
+    background-color: green;
+    color:white;
+    border:0px;
+    height: 29px;
+    width: 86px;
+    text-align: center; 
+}

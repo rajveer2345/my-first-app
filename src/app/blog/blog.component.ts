@@ -2,6 +2,8 @@ import { Component,OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { query } from '@angular/animations';
+
 
 @Component({
   selector: 'app-blog',
@@ -10,18 +12,41 @@ import { Router } from '@angular/router';
 })
 export class BlogComponent implements OnInit {
 
-
   blogRes: any;
   updatedData:any={};
   userData:any;
   blogListData:any[] = []
+ 
   id: any='651ffbe565d01d087be5854e';
+title:any;
+  defaultBlogListData: any[] = [];
+ 
+  formBuilder: any;
+
   constructor(private http: HttpClient, private authservice: AuthService, private router: Router){
     this.fetchData();
   }
 
 ngOnInit() {
   this.fetchData();
+
+}
+searchQuery: string = '';
+
+
+
+search() {
+  if(!this.searchQuery){
+    this.blogListData = this.defaultBlogListData || [];
+    return
+  }
+  this.authservice.getByTitle(this.searchQuery).subscribe((res:any)=>{
+    this.userData = res || {};
+    console.log(this.userData);
+    this.blogListData =  this.userData?.data
+
+      
+    })
 }
 
 fetchData() {
@@ -32,6 +57,8 @@ this.http.get('http://localhost:4000/blog/getall').subscribe(
     console.log('API Response:', data);
     
     this.blogListData = data as any[];
+    this.defaultBlogListData = data as any[];
+    console.log(this.blogListData);
   },
   (error) => {
    
@@ -46,6 +73,22 @@ edit(id:any){
     }
   })}
 
+  view(id:any){
+    this.router.navigate(['/dashboard/viewblog'],{
+    queryParams:{
+      id:id
+    }
+  })}
+
+
+  back(){
+    this.router.navigate(['/dashboard/blog'],{
+   
+  })}
+
+
+
+  ///
 
 
 // editBlogPost(blogid: any) {
@@ -83,3 +126,6 @@ deleteBlogPost(blogid: any) {
 
 
 }
+/////
+
+

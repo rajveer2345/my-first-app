@@ -1,0 +1,31 @@
+<body>
+    <div class="blogpost">
+        <header class="button-set">
+            <h1>Project Type of Users</h1>
+            <button routerLink="/dashboard/addtype" class="add">Add Type</button>
+
+
+        </header>
+        <table>
+         
+              
+            <tr>
+                <th class="header">S.No.</th>
+                <th class="header">Type</th>
+                <th class="header">Action</th>
+                <th class="header">Action</th>
+         
+            </tr>
+
+            <tr *ngFor="let post of projTypeData; let i = index">
+                <td>{{i+1}}</td>
+            
+                <td>{{ post.type }}</td>
+               
+          
+            <th> <button class="set1" (click)="deleteType(post?._id)">Delete</button></th>
+            <th> <button  class="set2" (click)="editType(post?._id)">Edit</button></th>
+        </tr>
+        </table>
+    </div>
+</body>

@@ -1,0 +1,70 @@
+  <div class="background-image">
+    <div class="first">
+        <header>
+            <div class="d-flex flex-row justify-content-between pt-5 text-white">
+                <p class="text">Programming Hub</p>
+                <nav>
+                    <ul class=" gaping d-flex flex-row justify-content-end ">
+                        <li><a href="#" class=" alink text-white">Home</a></li>
+                        <li><a href="#" class=" alink text-white">Pages</a></li>
+                        <li><a href="#" class=" alink text-white">Blog</a></li>
+                        <li><a href="#" class=" alink text-white" routerLink="/contact">Contact</a></li>
+                        <li><a href="#" class=" alink text-white" routerLink="/login">Login / SignUp</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+
+        
+        <div class=" second text-white">
+            <h1>Featured Articles</h1>
+            <p>Enjoy Personalized,Fun,And Interactive Learning Process While Becoming a Programming Hero</p>
+        </div>
+       
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form  (ngSubmit)="onSubmit()" #form="ngForm">
+      
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" class="form-control" name="name" placeholder="Your Name" required  minlength="4" appForbiddenName="bob" #name="ngModel" [(ngModel)]="contactData.name">
+
+      
+<div *ngIf="name.invalid && (name.dirty || name.touched)"class="alert">
+
+<div style =" color:red;" *ngIf="name.errors?.['required']">
+Name is required.
+</div>
+<div style =" color:red;" *ngIf="name.errors?.['minlength']">
+Name must be at least 4 characters long.
+</div>
+<div style =" color:red;" *ngIf="name.errors?.['forbiddenName']">
+Name cannot be Bob.
+</div>
+
+</div>
+
+      <label for="email">Email:</label>
+      <input type="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  id="email" name="email" required placeholder="Your Email"  #email="ngModel" required [(ngModel)]="contactData.email">
+        
+<div *ngIf="email.invalid && (email.dirty || email.touched)"class="alert">
+
+  <div style =" color:red;"*ngIf="email.errors?.['pattern']">
+  put the email in correct form
+  </div>    
+  </div>
+
+      <label for="phoneNumber">Subject:</label>
+      <input type="text" id="subject" name="subject" required placeholder="Your Subject" required [(ngModel)]="contactData.subject">
+
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required placeholder="Your Message" required [(ngModel)]="contactData.message"></textarea>
+
+      <button type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+  </div>
+  </div>
+
+

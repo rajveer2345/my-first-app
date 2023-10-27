@@ -1,0 +1,55 @@
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.button-set
+{
+    display: flex;
+    justify-content: space-between;
+}
+.header {
+    background-color:white;
+}
+header {
+   color:black;
+    padding: 10px;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+/* Button styles for the "Resolved" status */
+button.resolved {
+    background-color: green;
+    color: white;
+    border: 0px;
+    cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+  }
+  
+  /* Button styles for the "Pending" status */
+  button.pending {
+    background-color: yellow;
+    color: black;
+    border: 0px;
+    cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+  }
+  
+  /* Style when the button is hovered (optional) */
+  button.resolved:hover {
+    background-color: darkgreen;
+  }
+  
+  /* Style when the button is hovered (optional) */
+  button.pending:hover {
+    background-color: darkyellow;
+  }
+  

@@ -1,0 +1,60 @@
+img{
+    height: 100px;
+    width:100px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.header {
+    background-color:white;
+}
+header {
+   color:black;
+    padding: 10px;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.button-set
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.add
+{
+    background-color: blue;
+    color:white;
+    border: 0px;
+    width: 17%;
+}
+.set1{
+    background-color: red;
+    color:white;
+    border:0px;
+    height: 29px;
+    width: 86px;
+    text-align: center
+}
+.set2
+{
+    background-color: blue;
+    color:white;
+    border:0px;
+    height: 29px;
+    width: 86px;
+    text-align: center; 
+}
