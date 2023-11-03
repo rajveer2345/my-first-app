@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { AngularFireStorage } from "@angular/fire/compat/storage";
 
 @Component({
   selector: 'app-editblog',
@@ -8,12 +9,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./editblog.component.css']
 })
 export class EditblogComponent {
+  file: any;
 
-  blogData = { image: '', category: '', title:'', desc:'' };
+  blogData = { image: '', category: '', title:'', desc:'',  userId:'' };
   
   userData: any[] = [];
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private fireStorage:AngularFireStorage) {}
+
+  onFileChange(event:any){ 
+    this.file = event.target.files[0];
+  }
 
   // Define a function to add a new blog
   // addNewBlog() {
@@ -28,9 +34,15 @@ export class EditblogComponent {
   //     }
   //   );
   // }
-  onSubmit() {
-    //console.log(this.formData.password);
-    this.authService.createBlog(this.blogData).subscribe((res:any)=>{
+  async onSubmit() {
+      const path = `yt/${this.file.name}`
+      const uploadTask =await this.fireStorage.upload(path, this.file)
+      const url = await uploadTask.ref.getDownloadURL()
+      this.blogData.image = url;
+      this.blogData.userId = JSON.parse(localStorage.getItem('user'))._id; 
+      console.log("this is user id",this.blogData.userId);
+
+     this.authService.createBlog(this.blogData).subscribe((res:any)=>{
      this.userData = res || [];
      console.log(this.userData["message"]);
 
@@ -40,7 +52,7 @@ export class EditblogComponent {
       this.router.navigate(['/dashboard/blog'])
     }else{ 
 
-      alert("Something went wrong");
+      alert("OOPs Something went wrong");
     }
    })
  

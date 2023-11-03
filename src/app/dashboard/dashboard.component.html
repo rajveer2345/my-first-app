@@ -20,14 +20,29 @@
                             <span data-feather="home"></span> Dashboard
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" *ngIf="loggeduser?.role != 'admin'">
                         <a class="nav-link" href="#" routerLink="/dashboard/userform">
                             <span data-feather="file"></span> Profile
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item"*ngIf="loggeduser?.role != 'admin'">
                         <a class="nav-link" href="#" routerLink="/dashboard/blog">
                             <span data-feather="file"></span> Blog posts
+                        </a>
+                    </li>
+                    <li class="nav-item"*ngIf="loggeduser?.role !='admin'">
+                        <a class="nav-link" href="#" routerLink="/dashboard/project">
+                            <span data-feather="file"></span> Projects  
+                        </a>
+                    </li>
+                    <li class="nav-item" *ngIf="loggeduser?.role == 'admin'" >
+                        <a class="nav-link" href="#" routerLink="/dashboard/enquiry">
+                            <span data-feather="file"></span> Enquiry 
+                        </a>
+                    </li>
+                    <li class="nav-item" *ngIf="loggeduser?.role == 'admin'" >
+                        <a class="nav-link" href="#" routerLink="/dashboard/userinfo">
+                            <span data-feather="file"></span> Users 
                         </a>
                     </li>
 

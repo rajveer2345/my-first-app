@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 
+
 import { EditformComponent } from './editform/editform.component';
 import { UserformComponent } from './userform/userform.component';
 import { HomeComponent } from './home/home.component';
@@ -23,6 +24,16 @@ import { AuthLoginService } from './auth-login.service';
 import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFireStorageModule} from '@angular/fire/compat/storage';
 import { environment } from 'src/environments/environment.development';
+import { SearchPipe } from './search.pipe';
+import { ProjectComponent } from './project/project.component';
+import { InsertprojComponent } from './insertproj/insertproj.component';
+import { ContactComponent } from './contact/contact.component';
+import { EnquiryComponent } from './enquiry/enquiry.component';
+import { ViewenquiryComponent } from './viewenquiry/viewenquiry.component';
+import { ViewblogComponent } from './viewblog/viewblog.component';
+import { UserinfoComponent } from './userinfo/userinfo.component';
+
+
 
 @NgModule({
   declarations: [
@@ -36,10 +47,21 @@ import { environment } from 'src/environments/environment.development';
     SignupComponent,
     AddComponent,
     GreetingComponent,
-    EditblogComponent
+    EditblogComponent,
+    SearchPipe,
+    ProjectComponent,
+    InsertprojComponent,
+    ContactComponent,
+    EnquiryComponent,
+    ViewenquiryComponent,
+    ViewblogComponent,
+    UserinfoComponent,
+  
   
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
     BrowserModule,
     HttpClientModule,
     CommonModule,
@@ -56,6 +78,18 @@ import { environment } from 'src/environments/environment.development';
           path:'blog', component: BlogComponent,
         },
         {
+          path:'enquiry', component: EnquiryComponent,
+        },
+        {
+          path:'userinfo', component: UserinfoComponent,
+        },
+        {
+          path:'insertproj', component: InsertprojComponent,
+        },
+        {
+          path:'project', component: ProjectComponent,
+        },
+        {
           path:'userform', component: UserformComponent
         },
         {
@@ -66,12 +100,22 @@ import { environment } from 'src/environments/environment.development';
         },
         {
           path:'editblog', component: EditblogComponent
+        },
+        //{
+        //  path:'editproj', component: EditprojectComponent
+       // },
+        {
+          path:'viewenquiry', component: ViewenquiryComponent
+        },
+        {
+          path:'viewblog', component: ViewblogComponent
         }
       ],
     },
       {canActivate:[AuthLoginService],path: 'login', component: LoginComponent},
       {path: 'home', component: HomeComponent},
       {path: 'signup', component: SignupComponent},
+      {path: 'contact', component: ContactComponent},
 
     ]),
   ],

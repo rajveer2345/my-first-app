@@ -1,0 +1,18 @@
+<div class="container-fluid">
+   
+        <div class="display-data">
+            <h2>Entered Data</h2>
+            <p>First Name: {{ viewData.firstname }}</p>
+            <p>Email: {{ viewData.email }}</p>
+            <p>Phone Number: {{ viewData.phone }}</p>
+            <p>Subject: {{ viewData.subject }}</p>
+            <p>Time: {{ viewData.createdAt }}</p>
+
+            <!-- Repeat the above line for other fields -->
+        </div>
+
+      
+      <button  class="btn btn-primary" (click)="back()">Back</button>
+   
+</div>
+

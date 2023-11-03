@@ -5,18 +5,19 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog',
-  templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css']
+  templateUrl: './project.component.html',
+  styleUrls: ['./project.component.css']
 })
-export class BlogComponent implements OnInit {
+export class ProjectComponent implements OnInit {
 
 
-  blogRes: any;
+  projectRes: any;
   updatedData:any={};
   userData:any;
-  blogListData:any[] = []
-  id: any;
+  projectListData:any[] = []
+  id: any='651ffbe565d01d087be5854e';
   title: any;
+projectData: any;
   constructor(private http: HttpClient, private authservice: AuthService, private router: Router){
     this.fetchData();
   }
@@ -27,14 +28,12 @@ ngOnInit() {
 
 fetchData() {
 
-this.http.get('http://localhost:4000/blog/getall').subscribe(
+this.http.get('http://localhost:4000/project/getall').subscribe(
   (data) => {
 
     console.log('API Response:', data);
     
-    this.blogListData = data as any[];
-    // this.blogListData =/ this.blogListData.sort()
-
+    this.projectListData = data as any[];
   },
   (error) => {
    
@@ -43,17 +42,12 @@ this.http.get('http://localhost:4000/blog/getall').subscribe(
 );
 }
 edit(id:any){
-  this.router.navigate(['/dashboard/editform'],{
+  this.router.navigate(['/dashboard/editproj'],{
     queryParams:{
       id:id
     }
   })}
-  view(id:any){
-    this.router.navigate(['/dashboard/viewblog'],{
-      queryParams:{
-        id:id
-      }
-    })}
+
 
 
 // editBlogPost(blogid: any) {
@@ -71,14 +65,14 @@ edit(id:any){
 //  })
 
 // }
-deleteBlogPost(blogid: any) {
-  this.authservice.deleteBlog(blogid).subscribe((res:any)=>{
- this.blogRes = res || {};
+deleteProject(projectid: any) {
+  this.authservice.deleteproject(projectid).subscribe((res:any)=>{
+ this.projectRes = res || {};
 
 
-  console.log(this.blogRes);
+  console.log(this.projectRes);
 
-  if (this.blogRes["message"] == "success") {
+  if (this.projectRes["message"] == "success") {
     alert("Deleted successfully");
     this.fetchData();
     }else{
@@ -86,6 +80,7 @@ deleteBlogPost(blogid: any) {
 
    }
  })
+ 
 
 }
 

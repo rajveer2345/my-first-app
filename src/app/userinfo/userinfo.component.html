@@ -1,0 +1,33 @@
+<body>
+    <div class="blogpost">
+        <header class="button-set">
+            <h1>Enquiries</h1>
+
+
+        </header>
+        <table>
+            <tr>
+                <th class="header">S. No.</th>
+                <th class="header">First Name</th>
+                <th class="header">Email</th>
+                <th class="header">Role</th>
+                <th class="header">Status</th>
+               
+                
+            </tr>
+
+            <tr *ngFor="let post of UserListData ;let i = index">
+                <td>{{i+1}}</td>
+                <td>{{post.firstname}} </td>
+                <td>{{ post.email}}</td>
+                <td>{{ post.role}}</td>
+                <td><button (click)= "updateStatus(post?.status,post?.id)" class="btn btn-outline-warning" [ngClass]="{'resolved':post.status == 'resolved',
+                    'Pending':post.status=='pending'}">Pending...</button></td>
+
+                
+                
+            
+            </tr>
+        </table>
+    </div>
+</body>

@@ -1,0 +1,41 @@
+<body>
+    <div class="project">
+        <header class="button-set">
+            <h1>Projects</h1>
+            <!-- <button routerLink="/dashboard/editblog" class="add">Add Blog</button> -->
+            <button routerLink="/dashboard/insertproj" class="add">Insert new projects</button>
+        </header>
+        <!-- <input type="text" [(ngModel)] ="title" placeholder="search "> -->
+        <table>
+            <tr>
+                <th class="header">S. No.</th>
+
+                <th class="header">Image</th>
+                <th class="header">Project Title</th>
+                <th class="header">Description</th>
+                <th class="header">URL</th>
+                <th class="header"></th>
+                <th class="header"></th>
+            </tr>
+
+            <tr *ngFor="let post of projectListData ;let i = index">
+                <td>{{i+1}}</td>
+                <td><img src={{post?.image}}> </td>
+                <td>{{ post.projectTitle}}</td>
+                <td>{{ post.desc }}</td>
+                <td>{{ post.url }}</td>
+
+
+
+
+                <th> <button (click)="deleteProject(post?._id)">Delete</button></th>
+                <th> <button (click)="edit(post?._id)">Edit</button></th>
+
+            </tr>
+
+
+
+
+        </table>
+    </div>
+</body>
