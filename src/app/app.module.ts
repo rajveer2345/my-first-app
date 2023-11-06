@@ -36,6 +36,7 @@ import { ProjtypeComponent } from './projtype/projtype.component';
 import { AddtypeComponent } from './addtype/addtype.component';
 import { EdittypeComponent } from './edittype/edittype.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { ChatComponent } from './chat/chat.component';
 
 
 
@@ -63,7 +64,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     UsersComponent,
     ProjtypeComponent,
     AddtypeComponent,
-    EdittypeComponent
+    EdittypeComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -123,6 +125,9 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
         },
         {
           path:'edittype', component: EdittypeComponent
+        },
+        {
+          path:'chat', component: ChatComponent
         }
       ],
     },

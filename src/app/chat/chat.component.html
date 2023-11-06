@@ -1,0 +1,22 @@
+<table>
+<div class="search-bar">
+    <input type="input" placeholder="Search..." name="searchUser" [(ngModel)]="searchUser" (ngModelChange)="searchh()"/>
+    <!-- <button (click)="searchh()">Search</button> -->
+    </div>
+    
+    <tr>
+       
+        <th class="header">Username</th>
+        <th class="header">Email</th> 
+    </tr>
+    <tr >
+   
+        
+      
+        <td>{{ userListData.username }}</td>
+        <td>{{ userListData.email }}</td>
+        <button class="add">Add Friend</button>
+        </tr>
+  
+    
+    </table>

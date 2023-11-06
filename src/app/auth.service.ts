@@ -305,6 +305,15 @@ sendEmail(address,subject,message,name) {
   }); 
 }
 
+
+getByEmail(email: any) {
+  return this.auth.request({
+    path:`http://localhost:4000/user/search/get/${email}`,
+    method:"GET",
+  }); 
+}
+
+
 }
 
 
